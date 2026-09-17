@@ -186,6 +186,130 @@ nav a{
   z-index:1;
 }
 
+/* GTA SA */
+#explore-gtasa{
+  background:url("gta-background.webp") center/cover no-repeat;
+}
+
+#explore-gtasa::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.7);
+}
+
+#explore-gtasa > *{
+  position:relative;
+  z-index:1;
+}
+
+.gtasa-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  max-width:900px;
+  margin:30px auto 0;
+}
+
+.gtasa-grid img,
+.gtasa-grid iframe{
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  border-radius:10px;
+  border:none;
+}
+
+.req-table{
+  max-width:700px;
+  margin:30px auto 0;
+  border-collapse:collapse;
+  background:rgba(0,0,0,0.5);
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.req-table th,
+.req-table td{
+  padding:10px 16px;
+  text-align:left;
+  border-bottom:1px solid rgba(255,255,255,0.1);
+  font-size:13px;
+}
+
+.req-table th{
+  background:rgba(255,255,255,0.08);
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+.req-table tr:last-child td{
+  border-bottom:none;
+}
+
+.icon-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  background:white;
+  color:black;
+  font-size:20px;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.icon-btn:hover{
+  background:rgba(255,255,255,0.8);
+}
+
+.gtasa-grid img{
+  cursor:pointer;
+}
+
+/* GALLERY LIGHTBOX */
+.gallery-lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.92);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+}
+
+.gallery-lightbox img{
+  max-width:85%;
+  max-height:85%;
+  border-radius:8px;
+}
+
+.gallery-close{
+  position:absolute;
+  top:25px;
+  right:35px;
+  font-size:36px;
+  color:white;
+  cursor:pointer;
+  line-height:1;
+}
+
+.gallery-arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:32px;
+  color:white;
+  cursor:pointer;
+  padding:20px;
+  user-select:none;
+}
+
+.gallery-arrow.left{ left:10px; }
+.gallery-arrow.right{ right:10px; }
+
 .price-table{
   max-width:500px;
   margin:0 auto;
@@ -311,7 +435,7 @@ nav a{
 .explore-btn{
   display:inline-block;
   margin-top:10px;
-  font-size:12px;
+  font-size:16px;
   letter-spacing:1px;
   color:white;
   text-decoration:none;
@@ -384,8 +508,8 @@ nav a{
 
     <div class="socials">
       <a href="https://www.facebook.com/profile.php?id=61573838397585" target="_blank"><i class="fab fa-facebook"></i></a>
-      <a href="https://discord.gg/c5HNe4Xxck" target="_blank"><i class="fab fa-discord"></i></a>
-      <a href="https://youtube.com/@drowned-o2r?si=FBd860hVbEOQYGne" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://discord.gg/AYgZbDJRF5" target="_blank"><i class="fab fa-discord"></i></a>
+      <a href="https://youtube.com/@w-slow-static?si=iDYkTkEcmeuqeUHH" target="_blank"><i class="fab fa-youtube"></i></a>
       <a href="https://open.spotify.com/user/313ub5noauaqgh4wvwz7tuzuujhq" target="_blank"><i class="fab fa-spotify"></i></a>
     </div>
   </div>
@@ -481,6 +605,7 @@ nav a{
     <div class="mod-card"><img data-src="thumbs/img11.webp" data-full="img11.jpg" loading="lazy"><a class="explore-btn" onclick="showExplore()">Explore →</a><span>NFS Heat</span></div>
     <div class="mod-card"><img data-src="thumbs/img12.webp" data-full="img12.jpg" loading="lazy"><a class="explore-btn" onclick="showExplore()">Explore →</a><span>NFS Unbound</span></div>
     <div class="mod-card"><img data-src="thumbs/img13.webp" data-full="img13.jpg" loading="lazy"><a class="explore-btn" onclick="showExplore()">Explore →</a><span>NFS 2015</span></div>
+    <div class="mod-card"><img data-src="gta-sa.webp" loading="lazy"><a class="explore-btn" onclick="showGTASA()">Explore →</a><span>GTA San Andreas</span></div>
   </div>
 </section>
 
@@ -523,6 +648,44 @@ nav a{
   <a class="back-btn" onclick="showMods()">← Back to Mods</a>
 </section>
 
+<!-- GTA SAN ANDREAS MOD -->
+<section id="explore-gtasa" class="section" style="text-align:center">
+  <h2>Gta Sa REMASTERED</h2>
+
+  <p style="max-width:700px; margin:20px auto 0; line-height:1.6; opacity:0.85; font-size:14px">
+    Gta Sa REMASTERED is a complete graphics overhaul for GTA San Andreas — new lighting, textures, weather, and visual effects that bring the whole game up to modern standards. Before downloading, watch the showcase video below to see exactly what changes in-game. This mod also requires manually placing some files into your Documents folder, and the video walks through that step in detail — please watch it fully before installing.
+  </p>
+
+  <h2 style="margin-top:50px; font-size:16px">SCREENSHOTS</h2>
+  <div class="gtasa-grid">
+    <img data-src="gta-sa(6).webp" loading="lazy" onclick="openGallery(0)">
+    <img data-src="gta-sa(7).webp" loading="lazy" onclick="openGallery(1)">
+    <img data-src="gta-sa(8).webp" loading="lazy" onclick="openGallery(2)">
+    <img data-src="gta-sa(9).webp" loading="lazy" onclick="openGallery(3)">
+    <iframe src="https://www.youtube.com/embed/Zzy8fgG7XVw" allowfullscreen></iframe>
+    <img data-src="gta-sa(10).webp" loading="lazy" onclick="openGallery(4)">
+    <img data-src="gta-sa(11).webp" loading="lazy" onclick="openGallery(5)">
+    <img data-src="gta-sa(12).webp" loading="lazy" onclick="openGallery(6)">
+    <img data-src="gta-sa(13).webp" loading="lazy" onclick="openGallery(7)">
+  </div>
+
+  <h2 style="margin-top:50px; font-size:16px">SYSTEM REQUIREMENTS</h2>
+  <table class="req-table">
+    <thead>
+      <tr><th></th><th>Minimum</th><th>Recommended</th><th>Maximum</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>GPU</td><td>GTX 1660 Super / RTX 2060</td><td>RTX 3070 / RX 6800</td><td>RTX 3080 Ti / RTX 4070</td></tr>
+      <tr><td>CPU</td><td>i5-9400F / Ryzen 5 3600</td><td>i7-10700K / Ryzen 7 5700X</td><td>i7-13700K / Ryzen 7 7700X</td></tr>
+      <tr><td>RAM</td><td>8 GB</td><td>16 GB</td><td>32 GB</td></tr>
+    </tbody>
+  </table>
+
+  <a href="https://drive.usercontent.google.com/download?id=1WpsXwK0TDNj7bv05sd4x-8H6Bmhbg4m4&export=download&authuser=0&confirm=t&uuid=9980b4b8-a655-4c2d-aa2d-23ee107316d4&at=AMrWOn0XwMy3gdgkXjiUaE1oC8MG%3A1789629494291" class="icon-btn" style="margin-top:30px" title="Download"><i class="fa-solid fa-download"></i></a>
+  <br>
+  <a class="back-btn" onclick="showMods()" style="margin-top:15px; display:inline-block">← Back to Mods</a>
+</section>
+
 <!-- STORE -->
 <section id="store" class="section" style="text-align:center">
   <h2>Store</h2>
@@ -540,7 +703,7 @@ nav a{
   </div>
 
   <div style="margin-top:40px; display:flex; gap:20px; justify-content:center; flex-wrap:wrap">
-    <a href="https://discord.gg/EVNg4eMgth" target="_blank" class="back-btn">Join Discord →</a>
+    <a href="https://discord.gg/AYgZbDJRF5" target="_blank" class="back-btn">Join Discord →</a>
     <a href="https://www.g2g.com/Pablo_Scobar" target="_blank" class="back-btn">G2G Store →</a>
   </div>
 </section>
@@ -551,12 +714,21 @@ nav a{
   <img id="lightbox-img" src="">
 </div>
 
+<!-- GALLERY LIGHTBOX -->
+<div class="gallery-lightbox" id="gallery-lightbox" onclick="if(event.target.id==='gallery-lightbox') closeGallery()">
+  <span class="gallery-close" onclick="closeGallery()">&times;</span>
+  <span class="gallery-arrow left" onclick="event.stopPropagation(); galleryNav(-1)">&#10094;</span>
+  <img id="gallery-img" src="">
+  <span class="gallery-arrow right" onclick="event.stopPropagation(); galleryNav(1)">&#10095;</span>
+</div>
+
 <script>
 const home = document.getElementById("home");
 const wallpapers = document.getElementById("wallpapers");
 const mods = document.getElementById("mods");
 const ai = document.getElementById("ai");
 const explore = document.getElementById("explore");
+const exploreGTASA = document.getElementById("explore-gtasa");
 const store = document.getElementById("store");
 
 function hideAll(){
@@ -565,6 +737,7 @@ function hideAll(){
   mods.style.display="none";
   ai.style.display="none";
   explore.style.display="none";
+  exploreGTASA.style.display="none";
   store.style.display="none";
 }
 
@@ -590,6 +763,7 @@ function showWallpapers(){ hideAll(); wallpapers.style.display="block"; loadImag
 function showMods(){ hideAll(); mods.style.display="block"; loadImages(mods); }
 function showAI(){ hideAll(); ai.style.display="block"; loadImages(ai); }
 function showExplore(){ hideAll(); explore.style.display="block"; }
+function showGTASA(){ hideAll(); exploreGTASA.style.display="block"; loadImages(exploreGTASA); }
 function showStore(){ hideAll(); store.style.display="block"; }
 
 function openLightbox(btn){
@@ -601,6 +775,27 @@ function openLightbox(btn){
 
 function closeLightbox(){
   document.getElementById("lightbox").style.display = "none";
+}
+
+const gallerySources = [
+  "gta-sa(6).webp","gta-sa(7).webp","gta-sa(8).webp","gta-sa(9).webp",
+  "gta-sa(10).webp","gta-sa(11).webp","gta-sa(12).webp","gta-sa(13).webp"
+];
+let galleryIndex = 0;
+
+function openGallery(i){
+  galleryIndex = i;
+  document.getElementById("gallery-img").src = gallerySources[galleryIndex];
+  document.getElementById("gallery-lightbox").style.display = "flex";
+}
+
+function closeGallery(){
+  document.getElementById("gallery-lightbox").style.display = "none";
+}
+
+function galleryNav(dir){
+  galleryIndex = (galleryIndex + dir + gallerySources.length) % gallerySources.length;
+  document.getElementById("gallery-img").src = gallerySources[galleryIndex];
 }
 </script>
 
