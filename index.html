@@ -203,6 +203,23 @@ nav a{
   z-index:1;
 }
 
+/* NFS MW 2005 */
+#explore-mw2005{
+  background:url("mw2005background.webp") center/cover no-repeat;
+}
+
+#explore-mw2005::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.7);
+}
+
+#explore-mw2005 > *{
+  position:relative;
+  z-index:1;
+}
+
 .gtasa-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -610,6 +627,7 @@ nav a{
     <div class="mod-card"><img data-src="thumbs/img12.webp" data-full="img12.jpg" loading="lazy"><a class="explore-btn" onclick="showExplore()">Explore →</a><span>NFS Unbound</span></div>
     <div class="mod-card"><img data-src="thumbs/img13.webp" data-full="img13.jpg" loading="lazy"><a class="explore-btn" onclick="showExplore()">Explore →</a><span>NFS 2015</span></div>
     <div class="mod-card"><img data-src="gta-sa.webp" loading="lazy"><a class="explore-btn" onclick="showGTASA()">Explore →</a><span>GTA San Andreas</span></div>
+    <div class="mod-card"><img data-src="mw2005mods.webp" loading="lazy"><a class="explore-btn" onclick="showMW2005()">Explore →</a><span>NFS Most Wanted 2005</span></div>
   </div>
 </section>
 
@@ -690,6 +708,40 @@ nav a{
   <a class="back-btn" onclick="showMods()" style="margin-top:15px; display:inline-block">← Back to Mods</a>
 </section>
 
+<!-- NFS MOST WANTED 2005 MOD -->
+<section id="explore-mw2005" class="section" style="text-align:center">
+  <h2>NFS Most Wanted 2005 REMASTERED</h2>
+
+  <p style="max-width:700px; margin:20px auto 0; line-height:1.6; opacity:0.85; font-size:14px">
+    A complete graphics overhaul for Need for Speed Most Wanted (2005) — enhanced lighting, textures, and visual effects that bring the classic game up to modern standards.
+  </p>
+
+  <p style="max-width:700px; margin:20px auto 0; line-height:1.6; opacity:0.9; font-size:13px; color:#ffb84d; letter-spacing:0.5px">
+    ⚠ KNOWN ISSUE: While playing, if you press the Windows key to do something else and then return to the game, it will crash. You'll need to fully close and reopen the game from the start.
+  </p>
+
+  <h2 style="margin-top:50px; font-size:16px">SCREENSHOTS</h2>
+  <div class="gtasa-grid" id="mw2005-grid">
+    <!-- screenshots and video go here -->
+  </div>
+
+  <h2 style="margin-top:50px; font-size:16px">SYSTEM REQUIREMENTS</h2>
+  <table class="req-table">
+    <thead>
+      <tr><th></th><th>Minimum</th><th>Recommended</th><th>Maximum</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>GPU</td><td>RX 580 / GTX 1060 6GB</td><td>GTX 1660 Ti / RTX 2060</td><td>RTX 3070 / RX 6700 XT</td></tr>
+      <tr><td>CPU</td><td>i5-8400 / Ryzen 5 2600</td><td>i5-10400 / Ryzen 5 3600</td><td>i7-11700K / Ryzen 7 5800X</td></tr>
+      <tr><td>RAM</td><td>8 GB</td><td>16 GB</td><td>16 GB</td></tr>
+    </tbody>
+  </table>
+
+  <a href="#" class="icon-btn" style="margin-top:30px" title="Download"><i class="fa-solid fa-download"></i> Download</a>
+  <br>
+  <a class="back-btn" onclick="showMods()" style="margin-top:15px; display:inline-block">← Back to Mods</a>
+</section>
+
 <!-- STORE -->
 <section id="store" class="section" style="text-align:center">
   <h2>Store</h2>
@@ -733,6 +785,7 @@ const mods = document.getElementById("mods");
 const ai = document.getElementById("ai");
 const explore = document.getElementById("explore");
 const exploreGTASA = document.getElementById("explore-gtasa");
+const exploreMW2005 = document.getElementById("explore-mw2005");
 const store = document.getElementById("store");
 
 function hideAll(){
@@ -742,6 +795,7 @@ function hideAll(){
   ai.style.display="none";
   explore.style.display="none";
   exploreGTASA.style.display="none";
+  exploreMW2005.style.display="none";
   store.style.display="none";
 }
 
@@ -768,6 +822,7 @@ function showMods(){ hideAll(); mods.style.display="block"; loadImages(mods); }
 function showAI(){ hideAll(); ai.style.display="block"; loadImages(ai); }
 function showExplore(){ hideAll(); explore.style.display="block"; }
 function showGTASA(){ hideAll(); exploreGTASA.style.display="block"; loadImages(exploreGTASA); }
+function showMW2005(){ hideAll(); exploreMW2005.style.display="block"; loadImages(exploreMW2005); }
 function showStore(){ hideAll(); store.style.display="block"; }
 
 function openLightbox(btn){
