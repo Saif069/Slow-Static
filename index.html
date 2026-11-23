@@ -213,6 +213,50 @@ nav a{
   z-index:1;
 }
 
+/* NFS 2015 MOD ITEMS */
+.mod-item img{
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  border-radius:10px;
+  display:block;
+}
+
+.mod-item-name{
+  margin-top:12px;
+  letter-spacing:2px;
+  font-size:14px;
+  text-transform:uppercase;
+}
+
+.mod-item-actions{
+  margin-top:12px;
+  display:flex;
+  gap:10px;
+  justify-content:center;
+}
+
+.mod-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 20px;
+  background:rgba(0,0,0,0.8);
+  border:1px solid rgba(255,255,255,0.3);
+  border-radius:6px;
+  color:white;
+  cursor:pointer;
+  text-decoration:none;
+  font-size:13px;
+  letter-spacing:1px;
+  transition:background .2s,color .2s;
+}
+
+.mod-btn:hover{
+  background:white;
+  color:black;
+}
+
 /* GTA SA */
 #explore-gtasa{
   background:url("gta-background.webp") center/cover no-repeat;
@@ -873,9 +917,41 @@ nav a{
 
 <!-- NFS 2015 -->
 <section id="explore-nfs2015" class="section">
-  <h2>Explore Mods</h2>
-  <h1>NOTHING TO SEE HERE YET</h1>
-  <p>STAY TUNED</p>
+  <h2>NFS 2015 Mods</h2>
+  <div class="grid">
+    <div class="mod-item">
+      <img data-src="thumbs/EVO9RIZE.webp" alt="EVO9RIZE" loading="lazy">
+      <div class="mod-item-name">EVO9RIZE</div>
+      <div class="mod-item-actions">
+        <a class="mod-btn" onclick="openModPreview(this)"><i class="fa-solid fa-eye"></i> Preview</a>
+        <a class="mod-btn" href="https://www.mediafire.com/file/5274gporu1w3rjq/EVO9RIZE.fbmod/file" target="_blank" rel="noopener"><i class="fa-solid fa-download"></i> Download</a>
+      </div>
+    </div>
+    <div class="mod-item">
+      <img data-src="thumbs/Exaggerated%20Stance.webp" alt="Exaggerated Stance" loading="lazy">
+      <div class="mod-item-name">Exaggerated Stance</div>
+      <div class="mod-item-actions">
+        <a class="mod-btn" onclick="openModPreview(this)"><i class="fa-solid fa-eye"></i> Preview</a>
+        <a class="mod-btn" href="https://www.mediafire.com/file/c54s976tn1ym00m/15_Exaggerated+Stance.fbmod/file" target="_blank" rel="noopener"><i class="fa-solid fa-download"></i> Download</a>
+      </div>
+    </div>
+    <div class="mod-item">
+      <img data-src="thumbs/R34LEDV2.webp" alt="R34 LED V2" loading="lazy">
+      <div class="mod-item-name">R34 LED V2</div>
+      <div class="mod-item-actions">
+        <a class="mod-btn" onclick="openModPreview(this)"><i class="fa-solid fa-eye"></i> Preview</a>
+        <a class="mod-btn" href="https://www.mediafire.com/file/7qdukpb1f9e91w0/R34+LED+V2.fbmod/file" target="_blank" rel="noopener"><i class="fa-solid fa-download"></i> Download</a>
+      </div>
+    </div>
+    <div class="mod-item">
+      <img data-src="thumbs/180sxglass.webp" alt="180sx glass hood" loading="lazy">
+      <div class="mod-item-name">180sx glass hood</div>
+      <div class="mod-item-actions">
+        <a class="mod-btn" onclick="openModPreview(this)"><i class="fa-solid fa-eye"></i> Preview</a>
+        <a class="mod-btn" href="https://www.mediafire.com/file/1d11oh6x8k6vv93/180_glass_hood_clean_windows.fbmod/file" target="_blank" rel="noopener"><i class="fa-solid fa-download"></i> Download</a>
+      </div>
+    </div>
+  </div>
   <a class="back-btn" onclick="showMods()">← Back to Mods</a>
 </section>
 
@@ -1032,7 +1108,7 @@ function showWallpapers(){ hideAll(); wallpapers.style.display="block"; loadImag
 function showMods(){ hideAll(); mods.style.display="block"; loadImages(mods); }
 function showAI(){ hideAll(); ai.style.display="block"; loadImages(ai); }
 function showExplore(){ hideAll(); explore.style.display="block"; }
-function showNFS2015(){ hideAll(); exploreNFS2015.style.display="block"; }
+function showNFS2015(){ hideAll(); exploreNFS2015.style.display="block"; loadImages(exploreNFS2015); }
 function showGTASA(){ hideAll(); exploreGTASA.style.display="block"; loadImages(exploreGTASA); }
 function showMW2005(){ hideAll(); exploreMW2005.style.display="block"; loadImages(exploreMW2005); }
 function showStore(){ hideAll(); store.style.display="block"; }
@@ -1041,6 +1117,12 @@ function openLightbox(btn){
   const img = btn.parentElement.querySelector("img");
   const fullSrc = img.getAttribute("data-full") || img.src;
   document.getElementById("lightbox-img").src = fullSrc;
+  document.getElementById("lightbox").style.display = "flex";
+}
+
+function openModPreview(btn){
+  const img = btn.closest(".mod-item").querySelector("img");
+  document.getElementById("lightbox-img").src = img.src;
   document.getElementById("lightbox").style.display = "flex";
 }
 
