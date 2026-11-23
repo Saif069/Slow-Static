@@ -196,6 +196,23 @@ nav a{
   z-index:1;
 }
 
+/* NFS 2015 */
+#explore-nfs2015{
+  background:url("thumbs/nfs2015background.webp") center/cover no-repeat;
+}
+
+#explore-nfs2015::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.65);
+}
+
+#explore-nfs2015 > *{
+  position:relative;
+  z-index:1;
+}
+
 /* GTA SA */
 #explore-gtasa{
   background:url("gta-background.webp") center/cover no-repeat;
@@ -487,16 +504,16 @@ nav a{
 }
 
 /* EXPLORE */
-#explore{
+#explore, #explore-nfs2015{
   text-align:center;
 }
 
-#explore h1{
+#explore h1, #explore-nfs2015 h1{
   margin-top:120px;
   letter-spacing:4px;
 }
 
-#explore p{
+#explore p, #explore-nfs2015 p{
   margin-top:15px;
   letter-spacing:2px;
   opacity:0.7;
@@ -625,9 +642,9 @@ nav a{
   <div class="logo"><img src="red_oni_mask_logo.webp" class="logo-icon" alt=""> SAIF</div>
   <nav>
     <a onclick="showHome()">Home</a>
-    <a onclick="showWallpapers()">Wallpapers</a>
+    <a onclick="showWallpapers()">Screenshots</a>
     <a onclick="showMods()">Mods</a>
-    <a onclick="showAI()">AI Art</a>
+    <a onclick="showAI()">Wallpapers</a>
     <a onclick="showStore()">Store</a>
   </nav>
 </header>
@@ -644,7 +661,7 @@ nav a{
       <a href="https://www.facebook.com/profile.php?id=61573838397585" target="_blank"><i class="fab fa-facebook" style="color:#1877F2"></i></a>
       <a href="https://discord.gg/AYgZbDJRF5" target="_blank"><i class="fab fa-discord" style="color:#5865F2"></i></a>
       <a href="https://youtube.com/@w-slow-static?si=iDYkTkEcmeuqeUHH" target="_blank"><i class="fab fa-youtube" style="color:#FF0000"></i></a>
-      <a href="https://open.spotify.com/user/313ub5noauaqgh4wvwz7tuzuujhq" target="_blank"><i class="fab fa-spotify" style="color:#1DB954"></i></a>
+      <a href="https://open.spotify.com/user/31pl53eeftjk77gr6k7qkuso27bi?si=e27fb14d8ada45f2" target="_blank"><i class="fab fa-spotify" style="color:#1DB954"></i></a>
       <a href="https://www.g2g.com/Pablo_Scobar" target="_blank"><img src="symbol.webp" class="g2g-icon"></a>
       <a href="https://wa.me/201044053913" target="_blank"><i class="fab fa-whatsapp" style="color:#25D366"></i></a>
       <a href="https://www.instagram.com/saif_tarek_770?stkn=MXJpN2dsM2RyMHlpZw==" target="_blank"><i class="fab fa-instagram" style="color:#E4405F"></i></a>
@@ -655,7 +672,7 @@ nav a{
 
 <!-- WALLPAPERS -->
 <section id="wallpapers" class="section">
-  <h2>Wallpapers</h2>
+  <h2>Screenshots</h2>
   <div class="grid">
 
     <!-- new wallpapers -->
@@ -762,7 +779,7 @@ nav a{
     <div class="mod-card"><img data-src="img10.webp" data-full="img10.jpg" loading="lazy"><a class="explore-btn" onclick="showExplore()">Explore →</a><span>NFS Payback</span></div>
     <div class="mod-card"><img data-src="img11.webp" data-full="img11.jpg" loading="lazy"><a class="explore-btn" onclick="showExplore()">Explore →</a><span>NFS Heat</span></div>
     <div class="mod-card"><img data-src="img12.webp" data-full="img12.jpg" loading="lazy"><a class="explore-btn" onclick="showExplore()">Explore →</a><span>NFS Unbound</span></div>
-    <div class="mod-card"><img data-src="img13.webp" data-full="img13.jpg" loading="lazy"><a class="explore-btn" onclick="showExplore()">Explore →</a><span>NFS 2015</span></div>
+    <div class="mod-card"><img data-src="img13.webp" data-full="img13.jpg" loading="lazy"><a class="explore-btn" onclick="showNFS2015()">Explore →</a><span>NFS 2015</span></div>
     <div class="mod-card"><img data-src="gta-sa.webp" loading="lazy"><a class="explore-btn" onclick="showGTASA()">Explore →</a><span>GTA San Andreas</span></div>
     <div class="mod-card"><img data-src="mw2005mods.webp" loading="lazy"><a class="explore-btn" onclick="showMW2005()">Explore →</a><span>NFS Most Wanted 2005</span></div>
   </div>
@@ -770,7 +787,7 @@ nav a{
 
 <!-- AI ART -->
 <section id="ai" class="section">
-  <h2>AI Art</h2>
+  <h2>Wallpapers</h2>
   <div class="grid">
     <div class="wallpaper"><img data-src="ainew58.webp" data-full="ainew58.jpg" loading="lazy"><a class="preview-btn" onclick="openLightbox(this)"><i class="fa-solid fa-eye"></i></a><a href="ainew58.jpg" download><i class="fa-solid fa-download"></i></a></div>
     <div class="wallpaper"><img data-src="ainew57.webp" data-full="ainew57.jpg" loading="lazy"><a class="preview-btn" onclick="openLightbox(this)"><i class="fa-solid fa-eye"></i></a><a href="ainew57.jpg" download><i class="fa-solid fa-download"></i></a></div>
@@ -848,6 +865,14 @@ nav a{
 
 <!-- EXPLORE -->
 <section id="explore" class="section">
+  <h2>Explore Mods</h2>
+  <h1>NOTHING TO SEE HERE YET</h1>
+  <p>STAY TUNED</p>
+  <a class="back-btn" onclick="showMods()">← Back to Mods</a>
+</section>
+
+<!-- NFS 2015 -->
+<section id="explore-nfs2015" class="section">
   <h2>Explore Mods</h2>
   <h1>NOTHING TO SEE HERE YET</h1>
   <p>STAY TUNED</p>
@@ -968,6 +993,7 @@ const wallpapers = document.getElementById("wallpapers");
 const mods = document.getElementById("mods");
 const ai = document.getElementById("ai");
 const explore = document.getElementById("explore");
+const exploreNFS2015 = document.getElementById("explore-nfs2015");
 const exploreGTASA = document.getElementById("explore-gtasa");
 const exploreMW2005 = document.getElementById("explore-mw2005");
 const store = document.getElementById("store");
@@ -978,6 +1004,7 @@ function hideAll(){
   mods.style.display="none";
   ai.style.display="none";
   explore.style.display="none";
+  exploreNFS2015.style.display="none";
   exploreGTASA.style.display="none";
   exploreMW2005.style.display="none";
   store.style.display="none";
@@ -1005,6 +1032,7 @@ function showWallpapers(){ hideAll(); wallpapers.style.display="block"; loadImag
 function showMods(){ hideAll(); mods.style.display="block"; loadImages(mods); }
 function showAI(){ hideAll(); ai.style.display="block"; loadImages(ai); }
 function showExplore(){ hideAll(); explore.style.display="block"; }
+function showNFS2015(){ hideAll(); exploreNFS2015.style.display="block"; }
 function showGTASA(){ hideAll(); exploreGTASA.style.display="block"; loadImages(exploreGTASA); }
 function showMW2005(){ hideAll(); exploreMW2005.style.display="block"; loadImages(exploreMW2005); }
 function showStore(){ hideAll(); store.style.display="block"; }
