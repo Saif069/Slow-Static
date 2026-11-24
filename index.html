@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Slow Static</title>
-<link rel="icon" type="image/webp" href="red_oni_mask_logo.webp">
+<link rel="icon" type="image/webp" href="thumbs/lightning_circle_logo.webp">
 
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -164,6 +164,21 @@ nav a:hover{
 }
 
 /* SOCIALS */
+.socials a{ display:inline-block; transition:transform .25s ease, filter .25s ease; }
+.socials a:hover{ transform:translateY(-6px) scale(1.25); filter:drop-shadow(0 6px 10px rgba(255,160,77,.55)); }
+.socials a:active{ transform:scale(.95); }
+.social-img{ width:26px; height:26px; object-fit:contain; vertical-align:middle; }
+.section{ animation:secFade .45s ease; }
+@keyframes secFade{ from{opacity:0; transform:translateY(12px);} to{opacity:1; transform:none;} }
+#mod-search{ display:block; margin:0 auto 25px; width:min(420px,90%); padding:12px 18px; background:#161616; border:1px solid #333; border-radius:8px; color:#fff; font-size:14px; outline:none; transition:border-color .2s; }
+#mod-search:focus{ border-color:#ffa04d; }
+.install-guide{ max-width:700px; margin:0 auto 25px; background:#161616; border:1px solid #2a2a2a; border-radius:8px; padding:14px 20px; text-align:left; font-size:14px; line-height:1.8; }
+.install-guide summary{ cursor:pointer; letter-spacing:1px; }
+.lb-arrow{ position:absolute; top:50%; transform:translateY(-50%); font-size:40px; cursor:pointer; padding:20px; user-select:none; opacity:.7; transition:opacity .2s, color .2s; }
+.lb-arrow:hover{ opacity:1; color:#ffa04d; }
+#lb-prev{ left:10px; } #lb-next{ right:10px; }
+#to-top{ position:fixed; right:25px; bottom:25px; width:44px; height:44px; border-radius:50%; background:rgba(0,0,0,.8); border:1px solid #444; color:#fff; cursor:pointer; display:none; z-index:50; transition:transform .2s, box-shadow .2s; }
+#to-top:hover{ transform:translateY(-3px); box-shadow:0 6px 16px rgba(255,160,77,.4); }
 .socials{
   margin-top:25px;
 }
@@ -752,7 +767,7 @@ nav a:hover{
 <body>
 
 <header>
-  <div class="logo"><img src="red_oni_mask_logo.webp" class="logo-icon" alt=""> <span class="logo-text">SAIF</span></div>
+  <div class="logo"><img src="thumbs/lightning_circle_logo.webp" class="logo-icon" alt=""> <span class="logo-text">SAIF</span></div>
   <nav>
     <a onclick="showHome()">Home</a>
     <a onclick="showWallpapers()">Screenshots</a>
@@ -773,7 +788,8 @@ nav a:hover{
     <div class="socials">
       <a href="https://www.facebook.com/profile.php?id=61573838397585" target="_blank"><i class="fab fa-facebook" style="color:#1877F2"></i></a>
       <a href="https://discord.gg/AYgZbDJRF5" target="_blank"><i class="fab fa-discord" style="color:#5865F2"></i></a>
-      <a href="https://youtube.com/@w-slow-static?si=iDYkTkEcmeuqeUHH" target="_blank"><i class="fab fa-youtube" style="color:#FF0000"></i></a>
+      <a href="https://youtube.com/@w-slow-static?si=iDYkTkEcmeuqeUHH" target="_blank"><img src="thumbs/lightning_heart_logo.webp" class="social-img" alt="YouTube"></a>
+      <a href="https://youtube.com/channel/UCL39VUn_irwVbk1Ods0Tr7w?si=L0v6ay-BDcDoE_1L" target="_blank"><img src="thumbs/sonic_exe_logo.webp" class="social-img" alt="YouTube 2"></a>
       <a href="https://open.spotify.com/user/31pl53eeftjk77gr6k7qkuso27bi?si=e27fb14d8ada45f2" target="_blank"><i class="fab fa-spotify" style="color:#1DB954"></i></a>
       <a href="https://www.g2g.com/Pablo_Scobar" target="_blank"><img src="symbol.webp" class="g2g-icon"></a>
       <a href="https://wa.me/201044053913" target="_blank"><i class="fab fa-whatsapp" style="color:#25D366"></i></a>
@@ -987,6 +1003,10 @@ nav a:hover{
 <!-- NFS 2015 -->
 <section id="explore-nfs2015" class="section">
   <h2>NFS 2015 Mods</h2>
+  <details class="install-guide"><summary>How to install (.fbmod)</summary>
+    1. Download the mod file.<br>2. Open Frosty Mod Manager and choose NFS 2015.<br>3. Add the .fbmod file under Mods, then apply it and launch the game.
+  </details>
+  <input id="mod-search" type="search" placeholder="Search mods..." oninput="filterMods(this.value)">
   <div class="grid">
     <div class="mod-item">
       <img data-src="thumbs/EVO9RIZE.webp" alt="EVO9RIZE" loading="lazy">
@@ -1193,6 +1213,7 @@ nav a:hover{
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" onclick="if(event.target.id==='lightbox') closeLightbox()">
   <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+  <span class="lb-arrow" id="lb-prev" onclick="lbStep(-1)">&#10094;</span><span class="lb-arrow" id="lb-next" onclick="lbStep(1)">&#10095;</span>
   <img id="lightbox-img" src="">
 </div>
 
@@ -1254,17 +1275,33 @@ function showGTASA(){ hideAll(); exploreGTASA.style.display="block"; loadImages(
 function showMW2005(){ hideAll(); exploreMW2005.style.display="block"; loadImages(exploreMW2005); }
 function showStore(){ hideAll(); store.style.display="block"; }
 
-function openLightbox(btn){
-  const img = btn.parentElement.querySelector("img");
-  const fullSrc = img.getAttribute("data-full") || img.src;
-  document.getElementById("lightbox-img").src = fullSrc;
-  document.getElementById("lightbox").style.display = "flex";
+let lbList=[], lbIdx=0;
+function lbShow(){
+  const img=lbList[lbIdx];
+  document.getElementById("lightbox-img").src = img.getAttribute("data-full") || img.src;
 }
-
+function openLightbox(btn){
+  lbList=[...btn.closest(".grid").querySelectorAll("img")];
+  lbIdx=lbList.indexOf(btn.parentElement.querySelector("img"));
+  lbShow(); document.getElementById("lightbox").style.display="flex";
+}
 function openModPreview(btn){
-  const img = btn.closest(".mod-item").querySelector("img");
-  document.getElementById("lightbox-img").src = img.src;
-  document.getElementById("lightbox").style.display = "flex";
+  lbList=[...btn.closest(".grid").querySelectorAll(".mod-item:not([hidden]) img")];
+  lbIdx=lbList.indexOf(btn.closest(".mod-item").querySelector("img"));
+  lbShow(); document.getElementById("lightbox").style.display="flex";
+}
+function lbStep(d){ if(!lbList.length) return; lbIdx=(lbIdx+d+lbList.length)%lbList.length; lbShow(); }
+document.addEventListener("keydown",e=>{
+  if(document.getElementById("lightbox").style.display!=="flex") return;
+  if(e.key==="ArrowRight") lbStep(1);
+  if(e.key==="ArrowLeft") lbStep(-1);
+  if(e.key==="Escape") closeLightbox();
+});
+function filterMods(q){
+  q=q.trim().toLowerCase();
+  document.querySelectorAll(".mod-item").forEach(m=>{
+    m.hidden = !m.querySelector(".mod-item-name").textContent.toLowerCase().includes(q);
+  });
 }
 
 function closeLightbox(){
@@ -1291,6 +1328,23 @@ function galleryNav(dir){
   galleryIndex = (galleryIndex + dir + gallerySources.length) % gallerySources.length;
   document.getElementById("gallery-img").src = gallerySources[galleryIndex];
 }
+
+/* RANDOM ORDER on every visit */
+function shuffleGrid(grid){
+  const items=[...grid.children];
+  for(let i=items.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [items[i],items[j]]=[items[j],items[i]]; }
+  items.forEach(el=>grid.appendChild(el));
+}
+["wallpapers","ai","explore-nfs2015"].forEach(id=>{
+  const g=document.querySelector("#"+id+" .grid"); if(g) shuffleGrid(g);
+});
+
+/* BACK TO TOP */
+const toTop=document.createElement("button");
+toTop.id="to-top"; toTop.innerHTML='<i class="fa-solid fa-arrow-up"></i>';
+toTop.onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
+document.body.appendChild(toTop);
+window.addEventListener("scroll",()=>{ toTop.style.display = window.scrollY>600 ? "block":"none"; });
 
 /* HISTORY: browser back button moves between sections */
 const routeNames = {
