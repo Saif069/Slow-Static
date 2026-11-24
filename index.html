@@ -7,6 +7,9 @@
 <link rel="icon" type="image/webp" href="red_oni_mask_logo.webp">
 
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -25,8 +28,8 @@ body{
 /* HEADER */
 header{
   height:70px;
-  background:white;
-  color:black;
+  background:#111;
+  color:white;
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -47,10 +50,76 @@ header{
 }
 
 nav a{
-  margin-left:25px;
+  margin-left:28px;
   text-decoration:none;
-  color:black;
+  color:white;
   cursor:pointer;
+  font-family:"Rajdhani","Arial Narrow",Arial,sans-serif;
+  font-weight:600;
+  font-size:17px;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  transition:color .25s ease, transform .25s ease;
+  display:inline-block;
+}
+
+nav a:hover{
+  color:#ff6a00;
+  transform:translateY(-2px);
+}
+
+/* LOGO LIGHTNING */
+.logo-icon{
+  animation:logoFlash 4s infinite;
+}
+
+.logo-text{
+  animation:textFlash 4s infinite;
+}
+
+@keyframes logoFlash{
+  0%,86%,100%{ filter:none; }
+  87%{ filter:brightness(2.2) drop-shadow(0 0 8px #fff) drop-shadow(0 0 16px #ff6a00); }
+  88%{ filter:none; }
+  90%{ filter:brightness(2.8) drop-shadow(0 0 10px #fff) drop-shadow(0 0 22px #ff6a00); }
+  93%{ filter:brightness(1.4) drop-shadow(0 0 6px #ff6a00); }
+  96%{ filter:none; }
+}
+
+@keyframes textFlash{
+  0%,86%,100%{ text-shadow:none; color:white; }
+  87%{ text-shadow:0 0 8px #fff,0 0 18px #ff6a00; }
+  88%{ text-shadow:none; }
+  90%{ text-shadow:0 0 10px #fff,0 0 24px #ff6a00; color:#fff3e6; }
+  93%{ text-shadow:0 0 6px #ff6a00; }
+  96%{ text-shadow:none; }
+}
+
+/* BUTTON ANIMATIONS */
+.mod-btn, .wallpaper a{
+  transition:background .2s, color .2s, transform .2s ease, box-shadow .2s ease;
+}
+
+.mod-btn:hover, .wallpaper a:hover{
+  transform:translateY(-3px) scale(1.05);
+  box-shadow:0 6px 16px rgba(255,106,0,0.4);
+}
+
+.mod-btn:active, .wallpaper a:active{
+  transform:translateY(0) scale(0.96);
+  box-shadow:none;
+}
+
+.mod-btn i, .wallpaper a i{
+  transition:transform .25s ease;
+}
+
+.mod-btn:hover i, .wallpaper a:hover i{
+  transform:scale(1.2) rotate(-8deg);
+}
+
+@media (prefers-reduced-motion: reduce){
+  .logo-icon, .logo-text{ animation:none; }
 }
 
 /* HOME */
@@ -683,7 +752,7 @@ nav a{
 <body>
 
 <header>
-  <div class="logo"><img src="red_oni_mask_logo.webp" class="logo-icon" alt=""> SAIF</div>
+  <div class="logo"><img src="red_oni_mask_logo.webp" class="logo-icon" alt=""> <span class="logo-text">SAIF</span></div>
   <nav>
     <a onclick="showHome()">Home</a>
     <a onclick="showWallpapers()">Screenshots</a>
@@ -951,6 +1020,78 @@ nav a{
         <a class="mod-btn" href="https://www.mediafire.com/file/1d11oh6x8k6vv93/180_glass_hood_clean_windows.fbmod/file" target="_blank" rel="noopener"><i class="fa-solid fa-download"></i> Download</a>
       </div>
     </div>
+    <div class="mod-item">
+      <img data-src="thumbs/send%20nudes%20taillight%20supra.webp" alt="send nudes taillight supra" loading="lazy">
+      <div class="mod-item-name">send nudes taillight supra</div>
+      <div class="mod-item-actions">
+        <a class="mod-btn" onclick="openModPreview(this)"><i class="fa-solid fa-eye"></i> Preview</a>
+        <a class="mod-btn" href="https://www.mediafire.com/file/5xel5du67xhbwvg/send+nudes+taillight+supra.fbmod/file" target="_blank" rel="noopener"><i class="fa-solid fa-download"></i> Download</a>
+      </div>
+    </div>
+    <div class="mod-item">
+      <img data-src="thumbs/S2K_Evil_Eye_Taillights.webp" alt="S2K_Evil_Eye_Taillights" loading="lazy">
+      <div class="mod-item-name">S2K_Evil_Eye_Taillights</div>
+      <div class="mod-item-actions">
+        <a class="mod-btn" onclick="openModPreview(this)"><i class="fa-solid fa-eye"></i> Preview</a>
+        <a class="mod-btn" href="https://www.mediafire.com/file/ncd9jop6slgdwtb/15_S2K_Evil_Eye_Taillights.fbmod/file" target="_blank" rel="noopener"><i class="fa-solid fa-download"></i> Download</a>
+      </div>
+    </div>
+    <div class="mod-item">
+      <img data-src="thumbs/LED%20Honda%20NSX%20Kanji%20I%20want%20to%20die.webp" alt="LED Honda NSX Kanji I want to die" loading="lazy">
+      <div class="mod-item-name">LED Honda NSX Kanji I want to die</div>
+      <div class="mod-item-actions">
+        <a class="mod-btn" onclick="openModPreview(this)"><i class="fa-solid fa-eye"></i> Preview</a>
+        <a class="mod-btn" href="https://www.mediafire.com/file/uomfkc70zgr0ujx/LED+Honda+NSX+Kanji+I+want+to+die.fbmod/file" target="_blank" rel="noopener"><i class="fa-solid fa-download"></i> Download</a>
+      </div>
+    </div>
+    <div class="mod-item">
+      <img data-src="thumbs/SRT8_headlight_cover_sad_face.webp" alt="SRT-8_headlight_cover_sad_face" loading="lazy">
+      <div class="mod-item-name">SRT-8_headlight_cover_sad_face</div>
+      <div class="mod-item-actions">
+        <a class="mod-btn" onclick="openModPreview(this)"><i class="fa-solid fa-eye"></i> Preview</a>
+        <a class="mod-btn" href="https://www.mediafire.com/file/o4gtjpsnh5v2hkn/SRT-8_headlight_cover_sad_smiley_face.fbmod/file" target="_blank" rel="noopener"><i class="fa-solid fa-download"></i> Download</a>
+      </div>
+    </div>
+    <div class="mod-item">
+      <img data-src="thumbs/SRT-8_long_tail_light_angel_headlights.webp" alt="SRT8_long_tail_light" loading="lazy">
+      <div class="mod-item-name">SRT8_long_tail_light</div>
+      <div class="mod-item-actions">
+        <a class="mod-btn" onclick="openModPreview(this)"><i class="fa-solid fa-eye"></i> Preview</a>
+        <a class="mod-btn" href="https://www.mediafire.com/file/eshd53z36you8qo/SRT-8_long_tail_light_angel_headlights.fbmod/file" target="_blank" rel="noopener"><i class="fa-solid fa-download"></i> Download</a>
+      </div>
+    </div>
+    <div class="mod-item">
+      <img data-src="thumbs/R32_led_tail_lights.webp" alt="R32_led_tail_lights" loading="lazy">
+      <div class="mod-item-name">R32_led_tail_lights</div>
+      <div class="mod-item-actions">
+        <a class="mod-btn" onclick="openModPreview(this)"><i class="fa-solid fa-eye"></i> Preview</a>
+        <a class="mod-btn" href="https://www.mediafire.com/file/g6oe8vgqbbsanyp/R32_led_tail_lights.fbmod/file" target="_blank" rel="noopener"><i class="fa-solid fa-download"></i> Download</a>
+      </div>
+    </div>
+    <div class="mod-item">
+      <img data-src="thumbs/S2K_white_zebra_seats.webp" alt="S2K_white_zebra_seats" loading="lazy">
+      <div class="mod-item-name">S2K_white_zebra_seats</div>
+      <div class="mod-item-actions">
+        <a class="mod-btn" onclick="openModPreview(this)"><i class="fa-solid fa-eye"></i> Preview</a>
+        <a class="mod-btn" href="https://www.mediafire.com/file/bgoflubpusgooto/S2K_white_zebra_seats.fbmod/file" target="_blank" rel="noopener"><i class="fa-solid fa-download"></i> Download</a>
+      </div>
+    </div>
+    <div class="mod-item">
+      <img data-src="thumbs/DISABLE_DRIVER.webp" alt="DISABLE_DRIVER" loading="lazy">
+      <div class="mod-item-name">DISABLE_DRIVER</div>
+      <div class="mod-item-actions">
+        <a class="mod-btn" onclick="openModPreview(this)"><i class="fa-solid fa-eye"></i> Preview</a>
+        <a class="mod-btn" href="https://www.mediafire.com/file/vtvovtemmcau46q/DISABLE_DRIVER.fbmod/file" target="_blank" rel="noopener"><i class="fa-solid fa-download"></i> Download</a>
+      </div>
+    </div>
+    <div class="mod-item">
+      <img data-src="thumbs/Nissan%20180SX%20Round%20Lights.webp" alt="Nissan 180SX Round Lights" loading="lazy">
+      <div class="mod-item-name">Nissan 180SX Round Lights</div>
+      <div class="mod-item-actions">
+        <a class="mod-btn" onclick="openModPreview(this)"><i class="fa-solid fa-eye"></i> Preview</a>
+        <a class="mod-btn" href="https://www.mediafire.com/file/guoe85o4870z1rr/Nissan+180SX+Round+Lights.fbmod/file" target="_blank" rel="noopener"><i class="fa-solid fa-download"></i> Download</a>
+      </div>
+    </div>
   </div>
   <a class="back-btn" onclick="showMods()">← Back to Mods</a>
 </section>
@@ -1150,6 +1291,42 @@ function galleryNav(dir){
   galleryIndex = (galleryIndex + dir + gallerySources.length) % gallerySources.length;
   document.getElementById("gallery-img").src = gallerySources[galleryIndex];
 }
+
+/* HISTORY: browser back button moves between sections */
+const routeNames = {
+  home:"showHome", wallpapers:"showWallpapers", mods:"showMods", ai:"showAI",
+  explore:"showExplore", nfs2015:"showNFS2015", gtasa:"showGTASA",
+  mw2005:"showMW2005", store:"showStore"
+};
+const routes = {};
+Object.keys(routeNames).forEach(key=>{
+  const orig = window[routeNames[key]];
+  routes[key] = orig;
+  window[routeNames[key]] = function(){
+    orig();
+    if(location.hash !== "#"+key){
+      history.pushState({section:key}, "", "#"+key);
+    }
+    window.scrollTo(0,0);
+  };
+});
+
+function goToHash(){
+  const key = location.hash.slice(1);
+  (routes[key] || routes.home)();
+  window.scrollTo(0,0);
+}
+
+window.addEventListener("popstate", goToHash);
+
+(function(){
+  const key = location.hash.slice(1);
+  if(routes[key]){
+    routes[key]();
+  } else {
+    history.replaceState({section:"home"}, "", "#home");
+  }
+})();
 </script>
 
 </body>
